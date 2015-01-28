@@ -1,0 +1,8 @@
+---
+- name: install pptp-linux
+  apt: name=pptp-linux state=present
+
+- name: put /etc/ppp/peers/{{ pptp_peername }}
+  template: src=peer dest=/etc/ppp/peers/{{ pptp_peername }}
+
+# TODO modify chap-secrets somehow
